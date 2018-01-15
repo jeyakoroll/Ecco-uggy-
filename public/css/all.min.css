@@ -96,6 +96,7 @@ p {
 @media screen and (max-width: 480px) {
   .header {
     padding-top: 15px;
+    background: url("../img/header-mob.png") no-repeat center top/cover;
   }
 }
 
@@ -420,15 +421,308 @@ p {
   }
 }
 
-.timer {
+.counter {
   min-height: 490px;
   padding: 50px 0;
 }
 
-.timer .row {
+@media screen and (max-width: 768px) {
+  .counter {
+    background: url("../img/stock-back.png") no-repeat center center/cover;
+    padding: 20px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter {
+    background: url("../img/counter-mob.png") no-repeat center center/cover;
+    padding-bottom: 0;
+  }
+}
+
+.counter .row {
   width: 100%;
-  height: 100%;
+  min-height: 400px;
   background: url("../img/stock-back.png") no-repeat center center/cover;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .counter .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 50px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .counter .row {
+    background: transparent;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter .row {
+    padding-bottom: 35px;
+    padding-left: 0;
+  }
+}
+
+.counter__left {
+  width: 405px;
+  height: 280px;
+  margin-top: 65px;
+}
+
+@media screen and (max-width: 1200px) {
+  .counter__left {
+    width: 305px;
+    height: 211px;
+    margin-top: 110px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .counter__left {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter__left {
+    margin-top: 15px;
+    width: 290px;
+  }
+}
+
+.counter__center {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .counter__center {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter__center {
+    margin-bottom: 10px;
+  }
+}
+
+.counter__center .header__price-new {
+  width: 160px;
+  margin-bottom: 5px;
+}
+
+.counter__center .header__price-old {
+  width: 130px;
+  margin-top: -5px;
+}
+
+.counter__duration {
+  font-size: 24px;
+  font-family: 'FregatRegular';
+  color: #ff80ab;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .counter__duration {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+.counter__price {
+  padding-left: 12px;
+  width: 240px;
+  font-size: 72px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ff80ab;
+  position: relative;
+  height: 100px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'FregatBold';
+}
+
+@media screen and (max-width: 768px) {
+  .counter__price {
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter__price {
+    margin-bottom: -22px;
+  }
+}
+
+.counter__price-off {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  font-size: 24px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.counter__price::before {
+  content: '';
+  height: 3.5px;
+  background-color: #ff80ab;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.counter__right {
+  width: 316px;
+  height: 302px;
+  margin-top: 60px;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .counter__right {
+    width: 216px;
+    height: 202px;
+    margin-top: 110px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .counter__right {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter__right {
+    width: 290px;
+    height: 275px;
+  }
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-center {
+  -ms-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.banner-info__item {
+  width: 254px;
+  max-width: 30rem;
+  text-align: center;
+  overflow: auto;
+}
+
+.timer,
+.time-name {
+  float: right;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.timer li,
+.time-name li {
+  width: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.timer li {
+  background: url("../img/num-back.png") no-repeat center top/contain;
+}
+
+.timer li div,
+.time-name li div {
+  background: #3f51b5;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 25px;
+  margin: 2px;
+  height: 40px;
+  display: block;
+  float: left;
+  font-size: 30px;
+  font-family: "Bebas", sans-serif;
+  color: #343434;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.timer li div span,
+.time-name li div span {
+  position: relative;
+  top: 10px;
+  color: #fff;
+}
+
+.time-name {
+  margin-bottom: 0.9375rem;
+}
+
+.time-name li {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.center-block {
+  margin: 0 auto;
+}
+
+.descr {
+  min-height: 600px;
+  background-color: deepskyblue;
 }
 
 .empty {
@@ -440,6 +734,13 @@ p {
   .empty {
     min-height: 75px;
     margin-top: -75px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .empty {
+    margin-top: -85px;
+    min-height: 85px;
   }
 }
 
@@ -455,6 +756,13 @@ p {
   .footer {
     margin-top: -75px;
     min-height: 75px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    margin-top: -85px;
+    min-height: 85px;
   }
 }
 
