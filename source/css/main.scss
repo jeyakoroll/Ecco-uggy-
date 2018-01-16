@@ -467,6 +467,9 @@ p {
 .counter {
 	min-height: 490px;
 	padding: 50px 0;
+	@include desktop {
+		margin: 0 auto;
+	}
 	@include tablets {
 		background: url('../img/stock-back.png') no-repeat center center/cover;
 		padding: 20px 0;
@@ -667,26 +670,187 @@ p {
 	margin: 0 auto;
 }
 
-
 // descr
 .descr {
 	min-height: 600px;
-	background-color: deepskyblue;
+
+}
+
+.descr__wrap {
+	width: 630px;
+	z-index: 1;
+	@include laptop {
+		width: auto;
+		width: 100%;
+		padding: 0 15px;
+	}
+	@include tablets {
+		padding: 50px 0 0;
+	}
+	@include phones {
+		padding: 15px 0 0;
+	}
+}
+
+.descr__logo {
+	display: block;
+	width: 600px;
+	height: 162px;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 68px;
+	background: url('../img/rev-logo.png') no-repeat center center/contain;
+	@include laptop {
+		margin: 20px auto 58px;
+		align-self: center;
+	}
+	@include tablets {
+		margin-bottom: 38px;
+		width: 400px;
+	}
+	@include phones {
+		width: 300px;
+		margin-bottom: 21px;
+	}
+	&-before {
+		position: absolute;
+		top: -36px;
+		left: 0;
+		z-index: 1;
+		letter-spacing: 10px;
+		color: #ff4081;
+		font-size: 24px;
+		@include jenya(fbold);
+		@include tablets {
+			top: -10px;
+			text-align: center;
+			position: relative;
+		}
+		@include phones {
+			top: 0;
+			letter-spacing: 8.5px;
+			margin-top: 0;
+		}
+	}
+	&-after {
+		background-color: #ff4081;
+		width: 100px;
+		height: 3px;
+		position: absolute;
+		bottom: -34px;
+		left: 0;
+		@include tablets {
+			bottom: -120px;
+			position: relative;
+			margin: 0 auto;
+		}
+		@include phones {
+			position: absolute;
+			left: 0;
+			bottom: 16px;
+		}
+	}
+}
+
+.pink {
+	color: #f50557;
+}
+
+.descr__text {
+	font-size: 16px;
+	margin-bottom: 45px;
+	padding: 15px 20px 15px 0;
+	background-color: rgba(#fff, .5);
+	@include desktop {
+		margin-bottom: 30px;
+	}
+	@include laptop {
+		width: 475px;
+		font-size: 14px;
+	}
+	@include tablets {
+		width: 455px;
+		padding: 15px;
+		padding-right: 20px;
+		margin-bottom: 20px;
+	}
+	@include phones {
+		width: 280px;
+		margin: 0 auto 40px;
+		padding: 0;
+	}
+}
+
+.descr__button {
+	width: 202px;
+	height: 55px;
+	border-radius: 50px;
+	border: 2px solid #ff4081;
+	color: #ff4081;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include jenya(semi);
+	margin-bottom: 73px;
+	cursor: url('../img/open.png'), pointer;
+	@include desktop {
+		margin-bottom: 43px;
+	}
+	@include laptop {
+		margin: 0 auto 43px;
+	}
+	@include phones {
+		margin-bottom: 30px;
+	}
+	&:active {
+		cursor: url('../img/closed.png'), pointer;
+	}
+
+}
+
+.descr__pic {
+	width: 830px;
+	height: 678px;
+	position: absolute;
+	right: 28px;
+	top: 0;
+	@include desktop {
+		width: 575px;
+    height: 504px;
+	}
+	@include laptop {
+		width: 330px;
+    height: 240px;
+    top: 250px;
+    right: 15px;
+	}
+	@include tablets {
+		height: 270px;
+		width: 310px;
+		top: 270px;
+	}
+	@include phones {
+		display: none;
+	}
 }
 
 // advantages
 .advantages {
-
+	min-height: 650px;
+	background: url("../img/reason-back.png") no-repeat center top/cover;
 }
 
 // character
 .character {
-
+	min-height: 500px;
+	background: #303f9f;
 }
 
 // gallery
 .gallery {
-
+	min-height: 500px;
+	background: #dee7e8;
 }
 
 // work
