@@ -839,6 +839,72 @@ p {
 .advantages {
 	min-height: 650px;
 	background: url("../img/reason-back.png") no-repeat center top/cover;
+	& .row {
+		flex-flow: column wrap;
+		@include desktop {
+			padding-bottom: 60px;
+		}
+		@include tablets {
+			padding-bottom: 0;
+		}
+	}
+}
+
+.advantages__title {
+	@include jenya(fbold);
+	font-size: 48px;
+	color: #fff;
+	text-align: center;
+	@include desktop {
+		margin-top: 30px;
+	}
+	@include tablets {
+		font-size: 36px;
+		width: 90%;
+		margin: 30px auto 40px;
+	}
+	@include phones {
+		width: 285px;
+		line-height: 36px;
+		margin: 40px auto 42px;
+	}
+}
+
+.advantages__wrap {
+	display: flex;
+	justify-content: space-between;
+	@include laptop {
+		flex-flow: column wrap;
+	}
+}
+
+.advantages__item {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	@include laptop {
+		margin-bottom: 55px;
+	}
+	&-pic {
+		margin-bottom: 25px;
+		@include phones {
+			margin-bottom: 20px;
+		}
+	}
+	&-line {
+		width: 100px;
+		height: 3px;
+		background-color: #ff4081;
+		margin-bottom: 10px;
+	}
+	&-text {
+		font-size: 24px;
+		@include jenya(semi);
+		width: 240px;
+		color: #fff;
+		text-align: center;
+		line-height: 25px;
+	}
 }
 
 // character
