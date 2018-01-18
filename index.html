@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="public/css/normalize.css">
 	<link rel="stylesheet" href="public/css/fonts.css">
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/css/animate.css">
+	<link rel="stylesheet" href="public/css/jquery.fancybox.min.css">
 	<link rel="stylesheet" href="public/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="public/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="public/css/all.min.css">
@@ -109,15 +111,59 @@
 			<section class="advantages">
 				<div class="container">
 					<div class="row">
-						
+						<h3 class="advantages__title">Женские сапоги ECCO: главные достоинства</h3>
+						<div class="advantages__wrap">
+							<div class="advantages__item">
+								<img src="public/img/reason-one.png" alt="" class="advantages__item-pic">
+								<div class="advantages__item-line"></div>
+								<p class="advantages__item-text">Натуральная замша и кожа</p>
+							</div>
+							<div class="advantages__item">
+								<img src="public/img/reason-two.png" alt="" class="advantages__item-pic">
+								<div class="advantages__item-line"></div>
+								<p class="advantages__item-text">Подкладка из натурального меха</p>
+							</div>
+							<div class="advantages__item">
+								<img src="public/img/reason-three.png" alt="" class="advantages__item-pic">
+								<div class="advantages__item-line"></div>
+								<p class="advantages__item-text">Полиуретановая подошва</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 			<!-- Site character -->
 			<section class="character">
+				<div class="character__pic"></div>
 				<div class="container">
 					<div class="row">
-						
+						<div class="character__list">
+							<p class="character__list-title">Характеристики:</p>
+							<div class="character__list-wrap">
+								<div class="character__list-fat">
+									<p class="character__list-fat_item">Сезон:</p>
+									<p class="character__list-fat_item">Вид товара:</p>
+									<p class="character__list-fat_item">Каблук:</p>
+									<p class="character__list-fat_item top">Верх:</p>
+									<p class="character__list-fat_item">Материал подкладки:</p>
+									<p class="character__list-fat_item">Материал подошвы:</p>
+									<p class="character__list-fat_item">Стиль:</p>
+									<p class="character__list-fat_item">Бренд:</p>
+									<p class="character__list-fat_item">Цвет:</p>
+								</div>
+								<div class="character__list-thin">
+									<p class="character__list-thin_item">Зима 2018</p>
+									<p class="character__list-thin_item">сапоги</p>
+									<p class="character__list-thin_item">ниже 30 мм</p>
+									<p class="character__list-thin_item">натуральная замша и кожа</p>
+									<p class="character__list-thin_item top">натуральный мех</p>
+									<p class="character__list-thin_item top">полиуретан</p>
+									<p class="character__list-thin_item">спортивный(sport)</p>
+									<p class="character__list-thin_item">ECCO</p>
+									<p class="character__list-thin_item">черный</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -125,7 +171,61 @@
 			<section class="gallery">
 				<div class="container">
 					<div class="row">
-						
+						<aside class="gallery__wrap">
+							<div class="gallery__navs">
+								<div class="gallery__navs-left"></div>
+								<div class="gallery__navs-right"></div>
+							</div>
+							<div class="gallery__prev owl-carousel">
+								<a class="gallery__prev-wrap" data-fancybox="gallery" href="public/img/gallery/01.jpg">
+									<img src="public/img/gallery/01.jpg" alt="" class="gallery__prev-item">
+								</a>
+								<a class="gallery__prev-wrap" data-fancybox="gallery" href="public/img/gallery/02.jpg">
+									<img src="public/img/gallery/02.jpg" alt="" class="gallery__prev-item">
+								</a>
+								<a class="gallery__prev-wrap" data-fancybox="gallery" href="public/img/gallery/03.jpg">
+									<img src="public/img/gallery/03.jpg" alt="" class="gallery__prev-item">
+								</a>
+								<a class="gallery__prev-wrap" data-fancybox="gallery" href="public/img/gallery/04.jpg">
+									<img src="public/img/gallery/04.jpg" alt="" class="gallery__prev-item">
+								</a>
+							</div>
+							<div class="gallery__dots">
+								<div class="gallery__dots-item">
+									<img src="public/img/gallery/01.jpg" alt="" class="gallery__dots-pic">
+								</div>
+								<div class="gallery__dots-item">
+									<img src="public/img/gallery/02.jpg" alt="" class="gallery__dots-pic">
+								</div>
+								<div class="gallery__dots-item">
+									<img src="public/img/gallery/03.jpg" alt="" class="gallery__dots-pic">
+								</div>
+								<div class="gallery__dots-item">
+									<img src="public/img/gallery/04.jpg" alt="" class="gallery__dots-pic">
+								</div>
+							</div>
+						</aside>
+						<aside class="form">
+							<h3 class="form__title">ECCO UKIUK Boot</h3>
+							<p class="form__durability">Акция длиться толко 3 дня:</p>
+							<p class="form__old">4100 грн</p>
+							<p class="form__new">1570 грн</p>
+							<div class="form__wrap">
+								<form class="order-form" action="" method="POST" accepted-charset="utf-8">
+				         <input type="hidden" name="country" value="" name="country">
+				         <input type="hidden" name="key" value="key">
+				         <div class="form-group">
+									<input type="text" class="form-control" name="name_first" id="name_first" required>
+								 </div>
+				         <div class="form-group">
+									<input type="text" class="form-control" name="name_last" id="name_last" required>
+								 </div>
+								 <div class="form-group">
+									<button type="submit" name="submit">Заказать</button>
+								 </div>
+								</form>
+							</div>
+						</aside>
 					</div>
 				</div>
 			</section>
