@@ -258,7 +258,13 @@ p {
 		background: url('../img/header-mob.png') no-repeat center top/cover;
 	}
 	& .row {
+		@include clearfix;
+		display: block;
+		@include laptop {
+			display: flex;
+		}
 		@include tablets {
+			display: flex;
 			flex-flow: column wrap;
 			align-items: center;
 			padding-bottom: 50px;
@@ -269,6 +275,7 @@ p {
 .header__left {
 	display: flex;
 	flex-flow: column wrap;
+	float: left;
 	@include tablets {
 		align-items: center;
 	}
@@ -307,8 +314,9 @@ p {
 	}
 	@include phones {
 		font-size: 24px;
-		width: 304px;
+		width: 300px;
 		margin-top: 0;
+		letter-spacing: 5px;
 	}
 }
 
@@ -362,7 +370,7 @@ p {
 
 .header__button {
 	background-color: #ff4081;
-	cursor: url('../img/open.png'), pointer;
+	cursor: pointer;
 	width: 200px;
 	height: 50px;
 	border-radius: 50px;
@@ -373,9 +381,11 @@ p {
 	font-size: 18px;
 	@include jenya(semi);
 	@include box-shadow;
-	&:active {
-		cursor: url('../img/closed.png'), pointer;
-	}
+	// transition: 0.4s all;
+	// &:hover {
+	// 	background-color: #f50557;
+	// 	color: #fff;
+	// }
 	@include tablets {
 		display: none;
 	}
@@ -399,15 +409,23 @@ p {
 
 .header__price {
 	z-index: 1;
-	display: flex;
-	flex-flow: column wrap;
-	align-items: center;
+	display: block;
+	position: relative;
 	color: #000;
+	left: 450px;
 	margin-top: 190px;
 	margin-left: 30px;
-	min-width: 200px;
+	width: 200px;
 	height: 200px;
 	background: url('../img/top-price.png') no-repeat center center/cover;
+	@include laptop {
+		left: 0;
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		margin-top: 195px;
+    margin-left: 60px;
+	}
 	@include tablets {
 		margin-top: 30px;
 		margin-bottom: 50px;
@@ -421,14 +439,30 @@ p {
 
 .header__price-disc {
 	font-size: 48px;
+	left: 40px;
+	top: 5px;
+	position: absolute;
 	@include jenya(bold);
+	@include laptop {
+		left: 0;
+		top: 0;
+		position: relative;
+	}
 }
 
 .header__price-old {
 	font-size: 30px;
 	color: #fff;
-	position: relative;
+	top: 75px;
+  left: 37px;
+	position: absolute;
+	@include laptop {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
 	&::after {
+		z-index: 1;
 		content: "";
 		position: absolute;
 		left: -1%;
@@ -445,19 +479,29 @@ p {
 	@include jenya(bold);
 	color: #fff;
 	margin-top: -8px;
+	position: absolute;
+	bottom: 32px;
+  left: 22px;
+	@include laptop {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
 }
 
 .header__pic {
 	position: absolute;
+	top: 0;
 	right: -15px;
 	width: 725px;
 	height: 604px;
 	background: url('../img/top-shoes.png') no-repeat center center/contain;
+	outline: 0 none;
 	@include desktop {
 		right: -45px;
-		top: 150px;
-		width: 525px;
-		height: 404px;
+		top: 159px;
+    width: 475px;
+    height: 380px;
 	}
 	@include tablets {
 		width: 460px;
@@ -479,6 +523,7 @@ p {
 	padding: 50px 0;
 	@include desktop {
 		margin: 0 auto;
+		padding: 20px 0 50px;
 	}
 	@include tablets {
 		background: url('../img/stock-back.png') no-repeat center center/cover;
@@ -532,17 +577,32 @@ p {
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
+	width: 470px;
+	min-height: 380px;
+	margin-left: -85px;
+	@include desktop {
+		width: 430px;
+		margin-left: 0;
+	}
 	@include laptop {
+		width: auto;
 		margin-top: 0;
 	}
 	@include phones {
+		width: 300px;
 		margin-bottom: 0px;
 	}
 	& .header__price-new {
+		position: relative;
+		top: 0;
+		left: 0;
 		min-width: 110px;
 		margin-bottom: 5px;
 	}
 	& .header__price-old {
+		position: relative;
+		top: 0;
+		left: 0;
 		min-width: 130px;
 		margin-top: -5px;
 	}
@@ -575,9 +635,11 @@ p {
 	@include jenya(freg);
 	color: #ff80ab;
 	margin-bottom: 5px;
+	margin-top: 25px;
 	@include phones {
 		margin-top: 5px;
 		margin-bottom: 10px;
+		font-size: 22px;
 	}
 }
 
@@ -588,7 +650,7 @@ p {
 	display: flex;
 	color: #ff80ab;
 	position: relative;
-	height: 100px;
+	min-height: 100px;
 	align-items: center;
 	@include jenya(fbold);
 	@include tablets {
@@ -601,14 +663,14 @@ p {
 		align-self: flex-start;
 		font-size: 24px;
 		margin-left: 30px;
-		margin-top: 10px;
+		margin-top: 19px;
 	}
 	&::before {
 		content: '';
 		height: 3.5px;
 		background-color: #ff80ab;
 		width: 100%;
-		top: 0;
+		top: 5px;
 		left: 0;
 		position: absolute;
 	}
@@ -618,10 +680,11 @@ p {
 	width: 316px;
 	height: 302px;
 	margin-top: 60px;
-	margin-left: 50px;
+	margin-left: -40px;
 	@include desktop {
 		width: 216px;
     height: 202px;
+    margin-left: 50px;
     margin-top: 110px;
 	}
 	@include laptop {
@@ -714,9 +777,40 @@ p {
 	}
 	@include tablets {
 		padding: 50px 0 0;
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
 	}
 	@include phones {
 		padding: 15px 0 0;
+	}
+	& .button {
+		width: 202px;
+		background: #fff;
+		color: #ff4081;
+		height: 55px;
+		border-radius: 50px;
+		border: 2px solid #ff4081;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include jenya(semi);
+		margin-bottom: 73px;
+		cursor: pointer;
+		@include desktop {
+			margin-bottom: 43px;
+		}
+		@include laptop {
+			margin: 0 auto 43px;
+		}
+		@include phones {
+			margin-bottom: 30px;
+		}
+	}
+	& .button--ujarak:hover {
+    color: #fff;
+    border-color: #ff4081;
 	}
 }
 
@@ -801,6 +895,7 @@ p {
 		padding: 15px;
 		padding-right: 20px;
 		margin-bottom: 20px;
+		align-self: flex-start;
 	}
 	@include phones {
 		width: 280px;
@@ -809,33 +904,32 @@ p {
 	}
 }
 
-.descr__button {
-	width: 202px;
-	height: 55px;
-	border-radius: 50px;
-	border: 2px solid #ff4081;
-	color: #ff4081;
-	font-size: 18px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	@include jenya(semi);
-	margin-bottom: 73px;
-	cursor: url('../img/open.png'), pointer;
-	@include desktop {
-		margin-bottom: 43px;
-	}
-	@include laptop {
-		margin: 0 auto 43px;
-	}
-	@include phones {
-		margin-bottom: 30px;
-	}
-	&:active {
-		cursor: url('../img/closed.png'), pointer;
-	}
-
-}
+// .descr__button {
+// 	width: 202px;
+// 	height: 55px;
+// 	border-radius: 50px;
+// 	border: 2px solid #ff4081;
+// 	color: #ff4081;
+// 	font-size: 18px;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	@include jenya(semi);
+// 	margin-bottom: 73px;
+// 	cursor: pointer;
+// 	@include desktop {
+// 		margin-bottom: 43px;
+// 	}
+// 	@include laptop {
+// 		margin: 0 auto 43px;
+// 	}
+// 	@include phones {
+// 		margin-bottom: 30px;
+// 	}
+// 	&:active {
+// 		cursor: url('../img/closed.png'), pointer;
+// 	}
+// }
 
 .descr__pic {
 	width: 830px;
@@ -965,7 +1059,7 @@ p {
 }
 
 .character__pic {
-	background: url("../img/character-pic.png") no-repeat left center/cover;
+	background: url("../img/character-pic.png") no-repeat left bottom/cover;
 	width: 58%;
 	height: 100%;
 	position: absolute;
@@ -1035,7 +1129,7 @@ p {
 		font-size: 16px;
 	}
 	@include phones {
-		width: 290px;
+		width: 270px;
 		margin: 0 auto;
 	}
 }
@@ -1220,10 +1314,7 @@ p {
 			width: 62px;
 			height: 42px;
 		}
-		cursor: url('../img/open.png'), pointer;
-		&:active {
-			cursor: url('../img/closed.png'), pointer;
-		}
+		cursor: pointer;
 	}
 	&-pic {
 		@include absolute-center;
@@ -1252,6 +1343,9 @@ p {
 	& .header__price-old {
 		width: 130px;
 		margin: 0 auto;
+		position: relative;
+		top: 0;
+		left: 0;
 	}
 }
 
@@ -1262,9 +1356,10 @@ p {
 	text-align: center;
 	text-transform: uppercase;
 	margin-bottom: 0;
+	margin-top: 25px;
 	@include phones {
 		font-size: 32px;
-		margin-top: 19px;
+		margin-top: 10px;
 		margin-bottom: -10px;
 	}
 }
@@ -1276,6 +1371,7 @@ p {
 	text-align: center;
 	@include phones {
 		font-size: 22px;
+		margin-bottom: -7px;
 	}
 }
 
@@ -1299,6 +1395,25 @@ p {
 	}
 }
 
+.size__table {
+	font-size: 16px;
+	margin: 0 auto 20px;
+	display: block;
+	text-align: center;
+	color: #ddd;
+	@include jenya(freg);
+	&:focus {
+		color: #ddd;
+		outline: 0 none;
+	}
+	&:hover  {
+		color: #ddd;
+	}
+	@include phones {
+		margin-bottom: 10px;
+	}
+}
+
 .form__data {
 	width: 300px;
 	height: 32px;
@@ -1307,6 +1422,7 @@ p {
 	color: #010101;
 	border-radius: 50px;
 	border: 2px solid #fff;
+	position: relative;
 	@include information-shadow;
 	@include phones {
 		width: 275px;
@@ -1319,6 +1435,34 @@ p {
 	}
 }
 
+.form__data-first {
+	position: relative;
+	&::before {
+		z-index: 2;
+		content: '';
+		position: absolute;
+		height: 18px;
+		width: 15px;
+		top: 8px;
+		left: 12px;
+		background: url('../img/sprite.png') no-repeat -514px 0;
+	}
+}
+
+.form__data-last {
+	position: relative;
+	&::before {
+		z-index: 2;
+		content: '';
+		position: absolute;
+		height: 18px;
+		width: 16px;
+		left: 12px;
+		top: 9px;
+		background: url('../img/sprite.png') no-repeat -543px 0;
+	}
+}
+
 .form__button {
 	background-color: #ff4081;
 	border: 0 none;
@@ -1327,52 +1471,31 @@ p {
 	width: 100%;
 	font-size: 18px;
 	color: #000;
-	margin-top: 40px;
+	margin-top: 25px;
 	@include jenya(semi);
 	@include box-shadow;
-	cursor: url('../img/open.png'), pointer;
+	cursor: pointer;
 	@include phones {
 		margin-top: 15px;
-	}
-	&:active {
-		cursor: url('../img/closed.png'), pointer;
 	}
 }
 
 .form__order {
 	position: relative;
-	&::before {
-		content: '';
-		position: absolute;
-		height: 18px;
-		width: 15px;
-		top: 71px;
-		left: 12px;
-		background: url('../img/sprite.png') no-repeat -514px 0;
-		@include phones {
-			top: 59px;
-		}
-	}
-	&::after {
-		content: '';
-		position: absolute;
-		height: 18px;
-		width: 16px;
-		left: 12px;
-		top: 114px;
-		background: url('../img/sprite.png') no-repeat -543px 0;
-		@include phones {
-			top: 101px;
-		}
+	
+	
+	& .button {
+		// max-width: auto;
+		// margin: auto;
 	}
 }
 
 .form-group__options {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	@include phones {
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 	}
 }
 
@@ -1614,10 +1737,7 @@ p {
 		position: relative;
 		display: block;
 		height: 580px;
-		cursor: url('../img/open.png'), pointer;
-		&:active {
-			cursor: url('../img/closed.png'), pointer;
-		}
+		cursor: pointer;
 		&:focus {
 			outline: 0 none;
 		}
@@ -1655,10 +1775,7 @@ p {
 	position: relative;
 	height: 265px;
 	display: block;
-	cursor: url('../img/open.png'), pointer;
-	&:active {
-		cursor: url('../img/closed.png'), pointer;
-	}
+	cursor: pointer;
 	&:focus {
 		outline: 0 none;
 	}
@@ -1690,6 +1807,10 @@ p {
 // reviews
 .reviews {
 	min-height: 540px;
+	@include tablets {
+		min-height: 0;
+		padding-bottom: 60px;
+	}
 	@include phones {
 		min-height: 0;
 		padding-bottom: 50px;
@@ -1848,14 +1969,15 @@ p {
 		}
 	}
 	&-person {
-		display: flex;
-		align-items: center;
+		display: block;
+		@include clearfix;
 	}
 }
 
 .person-pic {
 	width: 60px;
 	height: 60px;
+	float: left;
 	&_one {
 		background: url('../img/sprite.png') no-repeat 0 0;
 	}
@@ -1869,7 +1991,9 @@ p {
 
 .person-name {
 	font-size: 16px;
+	margin-top: 18px;
 	margin-left: 12px;
+	float: left;
 }
 
 // reminder
@@ -1905,7 +2029,7 @@ p {
 		bottom: -30px;
 		left: 0;
 		width: 110%;
-		letter-spacing: 7px;
+		letter-spacing: 5px;
 	}
 }
 
@@ -1920,7 +2044,10 @@ p {
 .reminder__counter {
 	display: flex;
 	flex-flow: column wrap;
-	width: 430px;
+	width: 470px;
+	@include desktop {
+		width: 430px;
+	}
 	@include phones {
 		width: 300px;
 	}
@@ -1929,22 +2056,27 @@ p {
 		flex-flow: column wrap;
 		align-items: flex-start;
 		margin-top: 0;
+		width: 470px;
+		margin-left: 0;
+		min-height: 0;
+		@include desktop {
+			width: 430px;
+		}
 		@include laptop {
 			align-items: center;
 		}
 		@include phones {
-			width: 300px;
+			width: 280px;
 			margin: 0 auto;
 		}
 	}
 	& .counter__duration {
-		margin-top: 0;
 		letter-spacing: 4px;
 		@include laptop {
 			letter-spacing: 1px;
 		}
 		@include phones {
-			font-size: 21px;
+			font-size: 19px;
 		} 
 	}
 	& .banner-info__item {
@@ -2069,9 +2201,9 @@ p {
 	}
 	& .row {
 		padding-top: 4px;
-		padding-left: 135px;
+		// padding-left: 85px;
 		font-size: 14px;
-		justify-content: flex-start;
+		justify-content: space-between;
 		@include desktop {
 			padding: 4px 0;
 			padding-left: 0px;
@@ -2089,15 +2221,16 @@ p {
 .footer__politics {
 	cursor: pointer;
 	color: #fff;
-	margin-right: 45px;
+	// margin-right: 45px;
 	text-decoration: none;
 	transition: color 0.2s;
 	@include desktop {
 		margin-right: 0;
-		width: 230px;
+		width: 250px;
+		text-align: left;
 	}
-	@include phones {
-		width: 190px;
+	@include tablets {
+		text-align: center;
 	}
 	&:hover {
 		text-decoration: none;
@@ -2108,15 +2241,19 @@ p {
 }
 
 .footer__copy {
-	margin-right: 50px;
+	// margin-right: 50px;
 	@include desktop {
 		margin-right: 0;
+	}
+	@include tablets {
+		width: 310px;
+		text-align: center;
 	}
 }
 
 .footer__addres {
 	@include phones {
-		width: 260px;
+		width: 300px;
 		text-align: center;
 	}
 }
@@ -2476,4 +2613,76 @@ xpopup
 	@include main(380px) {
 		margin: 0 15px;
 	}
+}
+
+// HOVER ON BUTTONS
+/* Common button styles */
+.button {
+	float: left;
+	min-width: 150px;
+	// max-width: 250px;
+	// margin: 1em;
+	padding: 0 2em;
+	border: none;
+	background: #ff4081;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+}
+
+.button:focus {
+	outline: none;
+}
+
+.button > span {
+	vertical-align: middle;
+}
+
+/* Ujarak */
+.button--ujarak {
+	-webkit-transition: border-color 0.4s, color 0.4s;
+	transition: border-color 0.4s, color 0.4s;
+}
+.button--ujarak::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 25px;
+	background: #f50557;
+	z-index: -1;
+	opacity: 0;
+	-webkit-transform: scale3d(0.7, 1, 1);
+	transform: scale3d(0.7, 1, 1);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak.button--round-s::before {
+	border-radius: 2px;
+}
+.button--ujarak.button--inverted::before {
+	background: #7986CB;
+}
+.button--ujarak,
+.button--ujarak::before {
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--ujarak:hover {
+	color: #fff;
+	border-color: #f50557;
+}
+.button--ujarak.button--inverted:hover {
+	color: #37474F;
+	border-color: #fff;
+}
+.button--ujarak:hover::before {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }

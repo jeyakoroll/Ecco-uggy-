@@ -72,15 +72,22 @@ $(document).ready(function() {
   });
 
   // form
-  $( '.form__wrap button' ).addClass( 'form__button' );
+  $( '.form__wrap button' ).addClass( 'form__button button button--ujarak' );
   $( '.form__wrap .order-form' ).addClass( 'form__order' );
   $( '.form__wrap input' ).addClass( 'form__data' );
+  $( '.form__wrap input[name=name_first]' ).parent().addClass( 'form__data-first' )
+  $( '.form__wrap input[name=name_last]' ).parent().addClass( 'form__data-last' )
   $( '.form__wrap input[name=name_first]' ).attr("placeholder","Имя");
   $( '.form__wrap input[name=name_last]' ).attr("placeholder","Телефон");
 
   // option in form
   $( '.form__wrap input[name=name_first]' ).closest( '.form-group' ).before(
     '<div class="form-group form-group__options"><option class="options-item" value="36">36</option><option class="options-item" value="37">37</option><option class="options-item" value="38">38</option><option class="options-item" value="39">39</option><option class="options-item" value="40">40</option></div>'
+  );
+
+  // size in form
+  $( '.form__wrap input[name=name_first]' ).closest( '.form-group' ).before(
+    '<div class="form-group"><a href="public/img/ecco-size.jpg" data-fancybox class="size__table">Таблица размеров</a></div>'
   );
 
   // choose your size
